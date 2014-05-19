@@ -1,5 +1,8 @@
 ip_motors_user:
     resource: "@IPMotorsUserBundle/Resources/config/routing.yml"
+
+ip_motors_web_service:
+    resource: "@IPMotorsWebServiceBundle/Resources/config/routing.yml"
     prefix:   /
 
 ip_motors_home:
