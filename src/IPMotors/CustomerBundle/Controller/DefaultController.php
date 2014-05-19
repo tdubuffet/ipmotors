@@ -36,5 +36,21 @@ class DefaultController extends Controller {
                     'customer' => $customers
         ));
     }
+    
+    public function updateAction($id) {
+        $customer = $this->getDoctrine()
+                ->getRepository('IPMotorsCustomerBundle:Customer')
+                ->find($id);
+
+        if (!$customer) {
+            throw $this->createNotFoundException(
+                    'Aucun client trouvé pour cet id : ' . $id
+            );
+        }
+
+        return $this->render('IPMotorsCustomerBundle:Default:update.html.twig', array(
+                    'customer' => $customers
+        ));
+    }
 
 }

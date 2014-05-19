@@ -56,6 +56,7 @@ class Customer
      * @ORM\Column(name="town", type="string", length=45)
      */
     private $town;
+    
     /**
      * @var string
      *
