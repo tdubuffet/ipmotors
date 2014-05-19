@@ -2,7 +2,7 @@
 parameters:
     database_driver: pdo_mysql
     database_host: 192.168.3.62
-    database_port: null
+    database_port: 3306
     database_name: ipmotors
     database_user: groupe4
     database_password: groupe4
@@ -10,5 +10,5 @@ parameters:
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    locale: en
+    locale: fr
     secret: ThisTokenIsNotSoSecretChangeIt

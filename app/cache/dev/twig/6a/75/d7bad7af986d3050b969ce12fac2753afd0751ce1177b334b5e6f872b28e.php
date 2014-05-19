@@ -16,7 +16,7 @@ class __TwigTemplate_6a75d7bad7af986d3050b969ce12fac2753afd0751ce1177b334b5e6f87
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<div class=\"navbar navbar-default navbar-fixed-top\">
+        echo "<div class=\"navbar navbar-default\">
     <div class=\"container\">
         <div class=\"navbar-header\">
             <a href=\"../\" class=\"navbar-brand\">IPMotors</a>
@@ -52,6 +52,6 @@ class __TwigTemplate_6a75d7bad7af986d3050b969ce12fac2753afd0751ce1177b334b5e6f87
 
     public function getDebugInfo()
     {
-        return array (  19 => 1,  82 => 16,  77 => 13,  72 => 6,  66 => 5,  60 => 17,  58 => 16,  54 => 14,  52 => 13,  50 => 12,  44 => 9,  40 => 8,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  19 => 1,  79 => 14,  74 => 6,  68 => 5,  60 => 17,  56 => 15,  54 => 14,  51 => 13,  49 => 12,  43 => 9,  39 => 8,  34 => 7,  32 => 6,  22 => 1,  31 => 4,  28 => 5,);
     }
 }
