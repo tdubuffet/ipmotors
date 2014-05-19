@@ -1,3 +1,7 @@
 ip_motors_customer_homepage:
-    pattern:  /hello/{name}
+    pattern:  /customer
     defaults: { _controller: IPMotorsCustomerBundle:Default:index }
+
+ip_motors_customer_read:
+    path:      /customer/{id}
+    defaults:  { _controller: IPMotorsCustomerBundle:Default:read }

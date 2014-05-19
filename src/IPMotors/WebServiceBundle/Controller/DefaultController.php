@@ -16,13 +16,13 @@ class DefaultController extends Controller {
         $response = new JsonResponse(array('mail' => $mail));
         $response->headers->set('Content-Type', 'application/json');
 
-        $message = \Swift_Message::newInstance()
-                ->setSubject('Export Mail')
-                ->setFrom('admin@ipmotors.com')
-                ->setTo('cavannachristophe@gmail.com')
-                ->setBody($contentMail)
-        ;
-        $this->get('mailer')->send($message);
+//        $message = \Swift_Message::newInstance()
+//                ->setSubject('Export Mail')
+//                ->setFrom('admin@ipmotors.com')
+//                ->setTo('cavannachristophe@gmail.com')
+//                ->setBody($contentMail)
+//        ;
+//        $this->get('mailer')->send($message);
 
         return $response;
     }

@@ -41,11 +41,25 @@ class Customer
      * @ORM\Column(name="adresse", type="string", length=255)
      */
     private $adresse;
-
+    
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="telephone", type="bigint")
+     * @ORM\Column(name="postal", type="string", length=10)
+     */
+    private $postal;
+
+        
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="town", type="string", length=45)
+     */
+    private $town;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=10)
      */
     private $telephone;
 
@@ -169,6 +183,55 @@ class Customer
     public function getAdresse()
     {
         return $this->adresse;
+    }
+
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     * @return Customer
+     */
+    public function setPostal($postal)
+    {
+        $this->postal = $postal;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string 
+     */
+    public function getPostal()
+    {
+        return $this->postal;
+    }
+
+
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     * @return Customer
+     */
+    public function setTown($town)
+    {
+        $this->postal = $town;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string 
+     */
+    public function getTown()
+    {
+        return $this->town;
     }
 
     /**
