@@ -17,6 +17,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new IPMotors\HomeBundle\IPMotorsHomeBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new IPMotors\UserBundle\IPMotorsUserBundle(),
             new IPMotors\WebServiceBundle\IPMotorsWebServiceBundle(),
             new IPMotors\CustomerBundle\IPMotorsCustomerBundle(),
         );

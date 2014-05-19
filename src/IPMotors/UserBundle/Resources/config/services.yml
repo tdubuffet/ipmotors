@@ -1,0 +1,7 @@
+parameters:
+#    ip_motors_user.example.class: IPMotors\UserBundle\Example
+
+services:
+#    ip_motors_user.example:
+#        class: %ip_motors_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
