@@ -135,17 +135,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/hello')) {
-            // ip_motors_web_service_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ip_motors_web_service_homepage')), array (  '_controller' => 'IPMotors\\WebServiceBundle\\Controller\\DefaultController::indexAction',));
-            }
+        // ip_motors_web_service_homepage
+        if (0 === strpos($pathinfo, '/webservice/mail') && preg_match('#^/webservice/mail/(?P<mail>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ip_motors_web_service_homepage')), array (  '_controller' => 'IPMotors\\WebServiceBundle\\Controller\\DefaultController::mailAction',));
+        }
 
-            // ip_motors_home_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ip_motors_home_homepage')), array (  '_controller' => 'IPMotors\\HomeBundle\\Controller\\HomeController::indexAction',));
-            }
-
+        // ip_motors_home_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ip_motors_home_homepage')), array (  '_controller' => 'IPMotors\\HomeBundle\\Controller\\HomeController::indexAction',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

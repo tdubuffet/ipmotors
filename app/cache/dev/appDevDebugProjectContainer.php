@@ -2933,6 +2933,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\wamp\\www\\ipmotors\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('C:\\wamp\\www\\ipmotors\\src\\IPMotors\\HomeBundle/Resources/views', 'IPMotorsHome');
         $instance->addPath('C:\\wamp\\www\\ipmotors\\src\\IPMotors\\WebServiceBundle/Resources/views', 'IPMotorsWebService');
+        $instance->addPath('C:\\wamp\\www\\ipmotors\\src\\IPMotors\\CustomerBundle/Resources/views', 'IPMotorsCustomer');
         $instance->addPath('C:\\wamp\\www\\ipmotors\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\wamp\\www\\ipmotors\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/wamp/www/ipmotors/app/Resources/views');
@@ -3401,6 +3402,7 @@ class appDevDebugProjectContainer extends Container
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'IPMotorsHomeBundle' => 'IPMotors\\HomeBundle\\IPMotorsHomeBundle',
                 'IPMotorsWebServiceBundle' => 'IPMotors\\WebServiceBundle\\IPMotorsWebServiceBundle',
+                'IPMotorsCustomerBundle' => 'IPMotors\\CustomerBundle\\IPMotorsCustomerBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

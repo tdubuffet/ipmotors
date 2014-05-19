@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new IPMotors\HomeBundle\IPMotorsHomeBundle(),
             new IPMotors\WebServiceBundle\IPMotorsWebServiceBundle(),
+            new IPMotors\CustomerBundle\IPMotorsCustomerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

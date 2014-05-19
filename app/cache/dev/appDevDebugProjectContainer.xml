@@ -18,6 +18,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="IPMotorsHomeBundle">IPMotors\HomeBundle\IPMotorsHomeBundle</parameter>
       <parameter key="IPMotorsWebServiceBundle">IPMotors\WebServiceBundle\IPMotorsWebServiceBundle</parameter>
+      <parameter key="IPMotorsCustomerBundle">IPMotors\CustomerBundle\IPMotorsCustomerBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -2705,6 +2706,10 @@
       <call method="addPath">
         <argument>C:\wamp\www\ipmotors\src\IPMotors\WebServiceBundle/Resources/views</argument>
         <argument>IPMotorsWebService</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\ipmotors\src\IPMotors\CustomerBundle/Resources/views</argument>
+        <argument>IPMotorsCustomer</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\ipmotors\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
