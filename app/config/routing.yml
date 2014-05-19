@@ -1,0 +1,4 @@
+ip_motors_home:
+    resource: "@IPMotorsHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
