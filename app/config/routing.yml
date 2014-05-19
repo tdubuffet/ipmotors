@@ -1,3 +1,7 @@
+ip_motors_web_service:
+    resource: "@IPMotorsWebServiceBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ip_motors_home:
     resource: "@IPMotorsHomeBundle/Resources/config/routing.yml"
     prefix:   /

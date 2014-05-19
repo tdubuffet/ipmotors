@@ -1,0 +1,7 @@
+parameters:
+#    ip_motors_web_service.example.class: IPMotors\WebServiceBundle\Example
+
+services:
+#    ip_motors_web_service.example:
+#        class: %ip_motors_web_service.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
