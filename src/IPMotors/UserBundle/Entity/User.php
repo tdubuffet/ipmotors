@@ -4,6 +4,7 @@ namespace IPMotors\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -21,9 +22,36 @@ class User extends BaseUser {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    protected $surname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max="255",
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
     protected $name;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank(message="Please enter your surname.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max="255",
+     *     minMessage="The surname is too short.",
+     *     maxMessage="The surname is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+    protected $surname;
 
     /**
      * Get id
