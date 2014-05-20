@@ -70,10 +70,10 @@ class DefaultController extends Controller {
 
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($strenghs);
                 $em->flush();
+                
 
-                return $this->redirect($this->generateUrl('ip_motors_customer_homepage'));
+                return $this->redirect($this->generateUrl('ip_motors_strenghs_homepage'));
             }
         }
 
@@ -83,7 +83,7 @@ class DefaultController extends Controller {
             );
         }
 
-        return $this->render('IPMotorsCustomerBundle:Default:update.html.twig', array(
+        return $this->render('IPMotorsStrenghsBundle:Default:update.html.twig', array(
                     'strenghs' => $strenghs,
                     'form' => $form->createView(),
         ));
