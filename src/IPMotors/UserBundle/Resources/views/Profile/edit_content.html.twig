@@ -1,8 +1,32 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-    </div>
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit well bs-component col-lg-8 col-lg-offset-2">
+    <fieldset>
+        <legend>Editer mon profil</legend>
+        <div class="form-group">
+            <label for="name" class="col-lg-3 control-label">Nom:</label>
+            <div class="col-lg-8">
+                {{ form_widget(form.name, { 'attr': {"class":"form-control"}} ) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="surname" class="col-lg-3 control-label">Prénom:</label>
+            <div class="col-lg-8">
+                {{ form_widget(form.surname, { 'attr': {"class":"form-control"}} ) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-lg-3 control-label">Adresse e-mail:</label>
+            <div class="col-lg-8">
+                {{ form_widget(form.email, { 'attr': {"class":"form-control"}} ) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-3">
+              <a href="{{ path('fos_user_profile_show') }}" class="btn btn-default">Annuler</a>
+              <input type="submit" class="btn btn-primary" value='{{ 'profile.edit.submit'|trans }}'/>
+            </div>
+        </div>
+        {{ form_widget(form) }}
+    </fieldset>
 </form>

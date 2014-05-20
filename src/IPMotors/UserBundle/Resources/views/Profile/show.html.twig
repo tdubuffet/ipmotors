@@ -2,10 +2,10 @@
 
 {% block fos_user_content %}
     <div class="row" id="btns">
-        <div class="col-xs-12">
+        <div class="col-xs-6">
+            {% include "FOSUserBundle:Profile:show_content.html.twig" %}
             <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-primary btn-sm">Editer le profil</a>
             <a href="{{ path('fos_user_change_password') }}" class="btn btn-primary btn-sm">Modifier le mot de passe</a>
         </div>
     </div>
-    {% include "FOSUserBundle:Profile:show_content.html.twig" %}
 {% endblock fos_user_content %}

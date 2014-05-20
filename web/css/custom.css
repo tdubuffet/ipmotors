@@ -4,3 +4,9 @@
 .form-group{
     height: 43px;
 }
+.jumbotron {
+    padding: 25px 40px 25px 40px;
+}
+.jumbotron p{
+    font-size: 20px;
+}
