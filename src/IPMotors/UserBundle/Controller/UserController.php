@@ -5,6 +5,7 @@ namespace IPMotors\UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\UserBundle\Entity\User;
 use IPMotors\UserBundle\Form\UserType;
+use IPMotors\UserBundle\Form\UserProfile;
 
 class UserController extends Controller {
 
@@ -57,7 +58,7 @@ class UserController extends Controller {
         $user = $em->getRepository('IPMotorsUserBundle:User')->find($id);
 
 
-        $form = $this->createForm(new UserType('IPMotorsUserBundle:User'), $user);
+        $form = $this->createForm(new UserProfile('IPMotorsUserBundle:User'), $user);
         $request = $this->getRequest();
         if ($request->getMethod() == "POST") {
             $form->bind($request);
