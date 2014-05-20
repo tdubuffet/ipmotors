@@ -13,7 +13,7 @@ class UserType extends BaseType {
         $builder->add('name');
         $builder->add('surname');
         $builder->add('email');
-        //parent::buildForm($builder, $options);
+        parent::buildForm($builder, $options);
     }
 
     public function getName() {
