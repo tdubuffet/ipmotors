@@ -44,3 +44,7 @@ ip_motors_desactivate_user:
 ip_motors_add_user:
     pattern: /register/user/
     defaults: { _controller: IPMotorsUserBundle:User:addUser }
+
+ip_motors_edit_user:
+    pattern: /user/edit/{id}
+    defaults: { _controller: IPMotorsUserBundle:User:editUser }

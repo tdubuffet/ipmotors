@@ -75,3 +75,6 @@ fos_user:
     registration:
         form:
             type: ipmotors_userbundle_user_registration
+    profile:
+        form:
+            type: ipmotors_userbundle_user_profile

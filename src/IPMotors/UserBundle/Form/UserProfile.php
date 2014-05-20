@@ -6,7 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserType extends BaseType {
+class UserProfile extends BaseType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
 
@@ -17,7 +17,7 @@ class UserType extends BaseType {
     }
 
     public function getName() {
-        return 'ipmotors_userbundle_user_registration';
+        return 'ipmotors_userbundle_user_profile';
     }
 
     /**
