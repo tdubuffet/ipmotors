@@ -17,3 +17,17 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "routing/change_password.xml"
     prefix: /profile
+    
+
+        
+ip_motors_users_list:
+    pattern: /users
+    defaults: { _controller: IPMotorsUserBundle:User:usersList }
+
+ip_motors_promote_admin:
+    pattern: /users/user/admin/{username}
+    defaults: { _controller: IPMotorsUserBundle:User:promoteAdmin }
+
+ip_motors_demote_admin:
+    pattern: /users/user/simple/{username}
+    defaults: { _controller: IPMotorsUserBundle:User:demoteAdmin }
