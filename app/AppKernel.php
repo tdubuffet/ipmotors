@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new IPMotors\UserBundle\IPMotorsUserBundle(),
             new IPMotors\WebServiceBundle\IPMotorsWebServiceBundle(),
             new IPMotors\CustomerBundle\IPMotorsCustomerBundle(),
+            new IPMotors\FormBundle\IPMotorsFormBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
