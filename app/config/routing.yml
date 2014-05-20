@@ -1,5 +1,5 @@
-ip_motors_form:
-    resource: "@IPMotorsFormBundle/Resources/config/routing.yml"
+ip_motors_strenghs:
+    resource: "@IPMotorsStrenghsBundle/Resources/config/routing.yml"
     prefix:   /
 
 ip_motors_customer:

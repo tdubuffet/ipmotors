@@ -1,0 +1,16 @@
+ip_motors_strenghs_homepage:
+    pattern:  /strenghs
+    defaults: { _controller: IPMotorsStrenghsBundle:Default:index }
+   
+ip_motors_strenghs_create:
+    pattern:  /strenghs/create
+    defaults: { _controller: IPMotorsStrenghsBundle:Default:create }
+
+ip_motors_strenghs_update:
+    pattern:  /strenghs/update/{id}
+    defaults: { _controller: IPMotorsStrenghsBundle:Default:update }
+   
+ip_motors_strenghs_delete:
+    pattern:  /strenghs/delete/{id}
+    defaults: { _controller: IPMotorsStrenghsBundle:Default:delete }
+

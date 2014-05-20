@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<a href="{{ path('ip_motors_strenghs_create') }}"><button type="button" class="btn btn-primary">Ajouter Points forts</button></a>
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for object in strenghs %}
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td><a href="{{ path('ip_motors_strenghs_delete', { 'id': object.id }) }}">X</a> 
+                <a href="{{ path('ip_motors_strenghs_update', { 'id': object.id }) }}">M</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
