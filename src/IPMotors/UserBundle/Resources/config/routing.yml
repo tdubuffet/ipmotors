@@ -31,3 +31,16 @@ ip_motors_promote_admin:
 ip_motors_demote_admin:
     pattern: /users/user/simple/{username}
     defaults: { _controller: IPMotorsUserBundle:User:demoteAdmin }
+
+ip_motors_activate_user:
+    pattern: /users/user/activate/{username}
+    defaults: { _controller: IPMotorsUserBundle:User:activateUser }
+
+ip_motors_desactivate_user:
+    pattern: /users/user/desactivate/{username}
+    defaults: { _controller: IPMotorsUserBundle:User:desactivateUser }
+    
+    
+ip_motors_add_user:
+    pattern: /register/user/
+    defaults: { _controller: IPMotorsUserBundle:User:addUser }

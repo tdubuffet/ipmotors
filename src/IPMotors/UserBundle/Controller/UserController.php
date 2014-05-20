@@ -5,6 +5,7 @@ namespace IPMotors\UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller {
+    
 
     public function usersListAction() {
         //access user manager services 
@@ -28,6 +29,22 @@ class UserController extends Controller {
 
         $usermanip = $this->get('fos_user.util.user_manipulator');
         $usermanip->removeRole($username, 'ROLE_ADMIN');
+
+        return $this->redirect($this->generateUrl('ip_motors_users_list'));
+    }
+
+    public function activateUserAction($username) {
+
+        $usermanip = $this->get('fos_user.util.user_manipulator');
+        $usermanip->activate($username);
+
+        return $this->redirect($this->generateUrl('ip_motors_users_list'));
+    }
+
+    public function desactivateUserAction($username) {
+
+        $usermanip = $this->get('fos_user.util.user_manipulator');
+        $usermanip->deactivate($username);
 
         return $this->redirect($this->generateUrl('ip_motors_users_list'));
     }

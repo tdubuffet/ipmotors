@@ -13,6 +13,8 @@
                 <th>Prénom</th>
                 <th>Email</th>
                 <th>Actions</th>
+                <th colspan="2">Statut</th>
+
             </tr>
         </thead>
         <tbody>
@@ -29,6 +31,21 @@
                         {% else %}
                             <a href="{{ path('ip_motors_promote_admin', {username : user.username}) }}" class="btn btn-success btn-sm">Promouvoir</a>   
                         {%endif %}
+                    </td>
+                    
+                    <td>
+                        {% if user.enabled %}
+                            <strong>Activé</strong>
+                        {% else %}
+                            <strong>Désactivé</strong> 
+                        {%endif %}
+                    </td>
+                    <td>
+                         {% if user.enabled %}
+                            <a href="{{ path('ip_motors_desactivate_user', {username : user.username}) }}" class="btn btn-danger btn-sm">Désactiver</a>
+                        {% else %}
+                           <a href="{{ path('ip_motors_activate_user', {username : user.username}) }}" class="btn btn-success btn-sm">Activer</a>   
+                        {%endif %}                       
                     </td>
                 </tr>
             {% endfor %}
