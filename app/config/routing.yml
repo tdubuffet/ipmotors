@@ -1,3 +1,7 @@
+ip_motors_settings:
+    resource: "@IPMotorsSettingsBundle/Resources/config/routing.yml"
+    prefix:   /settings
+
 ip_motors_strenghs:
     resource: "@IPMotorsStrenghsBundle/Resources/config/routing.yml"
     prefix:   /
@@ -16,3 +20,4 @@ ip_motors_home:
 
 ip_motors_user:
     resource: "@IPMotorsUserBundle/Resources/config/routing.yml"
+    prefix:   /
