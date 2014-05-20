@@ -3,5 +3,13 @@ ip_motors_customer_homepage:
     defaults: { _controller: IPMotorsCustomerBundle:Default:index }
 
 ip_motors_customer_read:
-    path:      /customer/{id}
+    path:      /customer/read/{id}
     defaults:  { _controller: IPMotorsCustomerBundle:Default:read }
+    
+ip_motors_customer_update:
+    path:      /customer/update/{id}
+    defaults:  { _controller: IPMotorsCustomerBundle:Default:update }
+    
+ip_motors_customer_delete:
+    path:      /customer/delete/{id}
+    defaults:  { _controller: IPMotorsCustomerBundle:Default:delete }
