@@ -62,9 +62,7 @@ class DefaultController extends Controller {
         }
 
         if (!$survey) {
-            throw $this->createNotFoundException(
-                    'Aucun client trouvé pour cet id : ' . $id
-            );
+            return $this->redirect($this->generateUrl('ip_motors_form_edit_homepage'));
         }
 
         return $this->render('IPMotorsFormEditBundle:Default:create.html.twig', array(
@@ -134,9 +132,7 @@ class DefaultController extends Controller {
         }
 
         if (!$survey) {
-            throw $this->createNotFoundException(
-                    'Aucun client trouvé pour cet id : ' . $id
-            );
+            return $this->redirect($this->generateUrl('ip_motors_form_edit_homepage'));
         }
 
         return $this->render('IPMotorsFormEditBundle:Default:update.html.twig', array(
