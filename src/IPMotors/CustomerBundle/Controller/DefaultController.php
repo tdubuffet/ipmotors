@@ -76,9 +76,7 @@ class DefaultController extends Controller {
         }
 
         if (!$customer) {
-            throw $this->createNotFoundException(
-                    'Aucun client trouvé pour cet id : ' . $id
-            );
+            return $this->redirect($this->generateUrl('ip_motors_customer_homepage'));
         }
 
         return $this->render('IPMotorsCustomerBundle:Default:update.html.twig', array(
