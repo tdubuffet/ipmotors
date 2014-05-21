@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class SurveyRepository extends EntityRepository
 {
+    
+    public function getCurrent()
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb->where('s.activated = :value')
+           ->setParameter('value', 1);
+
+        return $qb->getQuery()
+                  ->getSingleResult();
+    }
 }

@@ -1,3 +1,7 @@
 ip_motors_web_service_homepage:
     pattern:  /webservice/mail/{mail}
     defaults: { _controller: IPMotorsWebServiceBundle:Default:mail }
+
+ip_motors_web_service_survey:
+    pattern:  /webservice/survey
+    defaults: { _controller: IPMotorsWebServiceBundle:Default:survey }

@@ -27,7 +27,59 @@ class DefaultController extends Controller {
         return $response;
     }
     
-    public function getDataAction(){
+    public function surveyAction(){
+        
+        $em             = $this->getDoctrine()->getManager();
+        $repoSurvery    = $em->getRepository('IPMotorsFormEditBundle:Survey');
+        $repoStrenghs   = $em->getRepository('IPMotorsStrenghsBundle:Strenghs');
+        
+        try {
+            $values            = $repoSurvery->getCurrent();
+            $strenghsActualIds = explode(':', $values->getActualVehiculStrenghs());
+            $strenghsFuturIds  = explode(':', $values->getActualVehiculStrenghs());
+            
+            $strenghsActual    = array();
+            foreach($strenghsActualIds as $idSA) {
+                
+                $strengh               = $repoStrenghs->findOneById($idSA);
+                if (count($strengh) === 1 ) {
+                    $strenghsActual[$idSA] = $strengh->getName();
+                }
+            }
+            
+            $strenghsFutur    = array();
+            foreach($strenghsFuturIds as $idSA) {
+                
+                $strengh               = $repoStrenghs->findOneById($idSA);
+                if (count($strengh) === 1 ) {
+                    $strenghsFutur[$idSA] = $strengh->getName();
+                }
+            }
+            
+            $survey = array(
+                'name'              => $values->getName(),
+                'actualVehiculName' => $values->getActualVehiculName(),
+                'strenghsVehicul'   => $strenghsActual,
+                'actualFuturName'   => $values->getFuturVehiculName(),
+                'strenghsFutur'     => $strenghsFutur
+            );
+            
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            $survey = array(
+                'error' => 'Not result found !'
+            );
+        } catch (\Doctrine\ORM\NonUniqueResultException $e) {
+            $survey = array(
+                'error' => 'Not result found !'
+            );
+        }
+        
+        
+        
+        $response = new JsonResponse($survey);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
         
     }
 
