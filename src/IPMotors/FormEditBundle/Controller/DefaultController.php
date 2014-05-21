@@ -36,8 +36,8 @@ class DefaultController extends Controller {
                     $this->get('request')->get('actualVehiculName') !== null &&
                     $this->get('request')->get('futurVehiculName') !== null) {
 
-                $actualVehiculStrenghs = implode($this->get('request')->get('actual_strenghs_survey'), ':');
-                $futurVehiculStrenghs = implode($this->get('request')->get('futur_strenghs_survey'), ':');
+                $actualVehiculStrenghs = implode($this->get('request')->get('actual_strenghs_survey', array()), ':');
+                $futurVehiculStrenghs = implode($this->get('request')->get('futur_strenghs_survey', array()), ':');
 
                 $survey->setName($this->get('request')->get('survey_name'))
                         ->setActualVehiculName($this->get('request')->get('actualVehiculName'))
@@ -103,8 +103,8 @@ class DefaultController extends Controller {
                     $this->get('request')->get('actualVehiculName') !== null &&
                     $this->get('request')->get('futurVehiculName') !== null) {
 
-                $actualVehiculStrenghs = implode($this->get('request')->get('actual_strenghs_survey'), ':');
-                $futurVehiculStrenghs = implode($this->get('request')->get('futur_strenghs_survey'), ':');
+                $actualVehiculStrenghs = implode($this->get('request')->get('actual_strenghs_survey', array()), ':');
+                $futurVehiculStrenghs = implode($this->get('request')->get('futur_strenghs_survey', array()), ':');
 
                 $survey->setName($this->get('request')->get('survey_name'))
                         ->setActualVehiculName($this->get('request')->get('actualVehiculName'))

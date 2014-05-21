@@ -26,5 +26,9 @@ class DefaultController extends Controller {
 
         return $response;
     }
+    
+    public function getDataAction(){
+        
+    }
 
 }
