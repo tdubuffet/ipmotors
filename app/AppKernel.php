@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new IPMotors\UserBundle\IPMotorsUserBundle(),
             new IPMotors\WebServiceBundle\IPMotorsWebServiceBundle(),
             new IPMotors\CustomerBundle\IPMotorsCustomerBundle(),
+			new IPMotors\FormEditBundle\IPMotorsFormEditBundle(),
             new IPMotors\StrenghsBundle\IPMotorsStrenghsBundle(),
             new IPMotors\MailBundle\IPMotorsMailBundle(),
         );

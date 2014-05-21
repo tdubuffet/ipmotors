@@ -1,3 +1,7 @@
+ip_motors_form_edit:
+    resource: "@IPMotorsFormEditBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ip_motors_mail:
     resource: "@IPMotorsMailBundle/Resources/config/routing.yml"
     prefix:   /mailing
@@ -21,3 +25,4 @@ ip_motors_home:
 ip_motors_user:
     resource: "@IPMotorsUserBundle/Resources/config/routing.yml"
     prefix:   /
+

@@ -1,0 +1,37 @@
+IPMotors\FormEditBundle\Entity\Survey:
+    type: entity
+    table: null
+    repositoryClass: IPMotors\FormEditBundle\Entity\SurveyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '55'
+        actualVehiculName:
+            type: string
+            length: '55'
+            column: actual_vehicul_name
+        actualVehiculStrenghs:
+            type: text
+            column: actual_vehicul_strenghs
+        futurVehiculName:
+            type: string
+            length: '55'
+            column: futur_vehicul_name
+        futurVehiculStrenghs:
+            type: text
+            column: futur_vehicul_strenghs
+        mailId:
+            type: string
+            length: '10'
+            column: mail_id
+        date:
+            type: date
+        activated:
+            type: boolean
+    lifecycleCallbacks: {  }

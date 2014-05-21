@@ -1,0 +1,15 @@
+ip_motors_form_edit_homepage:
+    pattern:  /formedit
+    defaults: { _controller: IPMotorsFormEditBundle:Default:index }
+    
+ip_motors_form_edit_create:
+    pattern:  /formedit/create
+    defaults: { _controller: IPMotorsFormEditBundle:Default:create }
+    
+ip_motors_form_edit_update:
+    pattern:  /formedit/update/{id}
+    defaults: { _controller: IPMotorsFormEditBundle:Default:update }
+    
+ip_motors_form_edit_delete:
+    pattern:  /formedit/delete/{id}
+    defaults: { _controller: IPMotorsFormEditBundle:Default:delete }

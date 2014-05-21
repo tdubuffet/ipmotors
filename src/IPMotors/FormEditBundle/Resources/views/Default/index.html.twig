@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<a href="{{ path('ip_motors_form_edit_create') }}"><button type="button" class="btn btn-primary">Ajouter Enquete</button></a>
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom Enquete</th>
+            <th>Vehicule Actuel</th>
+            <th>Vehicule Futur</th>
+            <th>Date</th>
+            <th>En cours</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in survey %}
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.actualVehiculName }}</td>
+            <td>{{ object.futurVehiculName }}</td>
+            <td>{{ object.date|date('Y-m-d')}}</td>
+            <td>{{ object.activated }}</td>
+            <td><a href="{{ path('ip_motors_form_edit_delete', { 'id': object.id }) }}">X</a> 
+                <a href="{{ path('ip_motors_form_edit_update', { 'id': object.id }) }}">M</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

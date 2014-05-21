@@ -1,0 +1,7 @@
+parameters:
+#    ip_motors_form_edit.example.class: IPMotors\FormEditBundle\Example
+
+services:
+#    ip_motors_form_edit.example:
+#        class: %ip_motors_form_edit.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
