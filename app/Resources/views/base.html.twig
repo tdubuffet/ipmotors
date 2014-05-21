@@ -3,22 +3,24 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/bootwatch.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
-</head>
-<body>
-    {% include '::menu.html.twig' %}
-    <div class="container">
-        {% block body %}{% endblock %}
-    </div>
+		{% block stylesheets %}{% endblock %}
+		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset('css/bootwatch.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+		<link rel="stylesheet" href="{{ asset('css/multi-select.css') }}" />
+	</head>
+	<body>
+		{% include '::menu.html.twig' %}
+		<div class="container">
+			{% block body %}{% endblock %}
+		</div>
 
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/bootwatch.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
-{% block javascripts %}{% endblock %}
-</body>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="{{ asset('js/jquery.multi-select.js') }}"></script>
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('js/bootwatch.js') }}"></script>
+	<script src="{{ asset('js/custom.js') }}"></script>
+	{% block javascripts %}{% endblock %}
+	</body>
 </html>
