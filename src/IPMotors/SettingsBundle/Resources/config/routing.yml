@@ -1,3 +1,0 @@
-ip_motors_settings_edit:
-    pattern:  /edit
-    defaults: { _controller: IPMotorsSettingsBundle:Settings:index }

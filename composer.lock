@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "16b9dd1d3a95cf4c51c52e02dd1d331e",
+    "hash": "1e56ac5ce2d5b8d5206ffac46a260b40",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1129,16 +1129,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48"
+                "reference": "46d55baab96f943061de6712b38011db354eed78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/043e336b871f17a117f76ef8e190eddfc04c8d48",
-                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/46d55baab96f943061de6712b38011db354eed78",
+                "reference": "46d55baab96f943061de6712b38011db354eed78",
                 "shasum": ""
             },
             "require": {
@@ -1179,7 +1179,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-05-08 08:11:19"
+            "time": "2014-05-08 08:35:11"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -1640,7 +1640,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "swiftmailer/swiftmailer": 20
     },
     "platform": {
         "php": ">=5.3.3"

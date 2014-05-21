@@ -1,0 +1,7 @@
+ip_motors_mail_edit:
+    pattern:  /edit
+    defaults: { _controller: IPMotorsMailBundle:Mail:index }
+
+ip_motors_mail_test:
+    pattern:  /test
+    defaults: { _controller: IPMotorsMailBundle:Mail:test }

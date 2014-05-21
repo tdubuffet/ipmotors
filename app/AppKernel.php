@@ -16,13 +16,15 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            
+            
             new IPMotors\HomeBundle\IPMotorsHomeBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new IPMotors\UserBundle\IPMotorsUserBundle(),
             new IPMotors\WebServiceBundle\IPMotorsWebServiceBundle(),
             new IPMotors\CustomerBundle\IPMotorsCustomerBundle(),
             new IPMotors\StrenghsBundle\IPMotorsStrenghsBundle(),
-            new IPMotors\SettingsBundle\IPMotorsSettingsBundle(),
+            new IPMotors\MailBundle\IPMotorsMailBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

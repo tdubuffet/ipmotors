@@ -1,6 +1,6 @@
-ip_motors_settings:
-    resource: "@IPMotorsSettingsBundle/Resources/config/routing.yml"
-    prefix:   /settings
+ip_motors_mail:
+    resource: "@IPMotorsMailBundle/Resources/config/routing.yml"
+    prefix:   /mailing
 
 ip_motors_strenghs:
     resource: "@IPMotorsStrenghsBundle/Resources/config/routing.yml"
