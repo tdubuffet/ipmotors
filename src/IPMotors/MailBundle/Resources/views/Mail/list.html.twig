@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-10">
+            <h1>Liste des mailings  </h1>
+        </div>
+
+        <div class="col-lg-2">
+            <a href="{{ path('ip_motors_mail_add') }}" class="btn btn-info">Ajouter un mailing</a>
+        </div>
+
+
+        <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Titre</th>
+                    <th>Expéditeur</th>
+                    <th>Options</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for mailing in mailings %}
+                    <tr>
+                        <td>{{ mailing.id }}</td>
+                        <td>{{ mailing.title }}</td>
+                        <td>{{ mailing.expeditor }}</td>
+              
+                        <td>
+                            <a href="{{ path('ip_motors_mail_edit', {id : mailing.id}) }}" class="btn btn-info btn-sm">Modifier</a>   
+                        </td>
+                        <td>
+                            <a href="{{ path('ip_motors_mail_delete', {id : mailing.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>   
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}

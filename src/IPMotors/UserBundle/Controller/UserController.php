@@ -10,7 +10,6 @@ use IPMotors\UserBundle\Form\UserProfile;
 class UserController extends Controller {
 
     public function usersListAction() {
-        //access user manager services 
 
         $userManager = $this->get('fos_user.user_manager');
         $users = $userManager->findUsers();
