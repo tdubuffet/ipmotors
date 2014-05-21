@@ -3,10 +3,9 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
-class AppKernel extends Kernel
-{
-    public function registerBundles()
-    {
+class AppKernel extends Kernel {
+
+    public function registerBundles() {
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
@@ -23,9 +22,11 @@ class AppKernel extends Kernel
             new IPMotors\UserBundle\IPMotorsUserBundle(),
             new IPMotors\WebServiceBundle\IPMotorsWebServiceBundle(),
             new IPMotors\CustomerBundle\IPMotorsCustomerBundle(),
-			new IPMotors\FormEditBundle\IPMotorsFormEditBundle(),
+            new IPMotors\FormEditBundle\IPMotorsFormEditBundle(),
             new IPMotors\StrenghsBundle\IPMotorsStrenghsBundle(),
             new IPMotors\MailBundle\IPMotorsMailBundle(),
+            
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -37,8 +38,8 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
-    {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+    public function registerContainerConfiguration(LoaderInterface $loader) {
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
+
 }
