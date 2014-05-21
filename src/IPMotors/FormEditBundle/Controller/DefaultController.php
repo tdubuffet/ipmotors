@@ -29,6 +29,11 @@ class DefaultController extends Controller {
                 ->getRepository('IPMotorsStrenghsBundle:Strenghs')
                 ->findAll();
 
+
+        $emailings = $this->getDoctrine()
+                ->getRepository('IPMotorsMailBundle:Mail')
+                ->findAll();
+
         $request = $this->getRequest();
 
         if ($request->getMethod() == 'POST') {
@@ -44,7 +49,7 @@ class DefaultController extends Controller {
                         ->setActualVehiculStrenghs($actualVehiculStrenghs)
                         ->setFuturVehiculName($this->get('request')->get('futurVehiculName'))
                         ->setFuturVehiculStrenghs($futurVehiculStrenghs)
-                        ->setMailId(0)
+                        ->setMailId($this->get('request')->get('emailing_survey'))
                         ->setActivated(FALSE)
                         ->setDate(new \DateTime());
 
@@ -66,6 +71,7 @@ class DefaultController extends Controller {
                     'form' => $form->createView(),
                     'survey' => $survey,
                     'strenghs' => $strenghs,
+                    'emailings' => $emailings,
         ));
     }
 
@@ -82,22 +88,26 @@ class DefaultController extends Controller {
                 ->getRepository('IPMotorsStrenghsBundle:Strenghs')
                 ->findAll();
 
+        $emailings = $this->getDoctrine()
+                ->getRepository('IPMotorsMailBundle:Mail')
+                ->findAll();
+
 
         $FactualStrenghs = explode(':', $survey->getActualVehiculStrenghs());
         $FfuturStrenghs = explode(':', $survey->getFuturVehiculStrenghs());
-        
+
         $actualStrenghs = array();
-        foreach($FactualStrenghs as $strengh) {
+        foreach ($FactualStrenghs as $strengh) {
             $actualStrenghs[$strengh] = $strengh;
         }
-        
+
         $futurStrenghs = array();
-        foreach($FfuturStrenghs as $strengh) {
+        foreach ($FfuturStrenghs as $strengh) {
             $futurStrenghs[$strengh] = $strengh;
         }
-        
+
         $request = $this->get('request');
-        
+
         if ($request->getMethod() == 'POST') {
             if ($this->get('request')->get('survey_name') !== null &&
                     $this->get('request')->get('actualVehiculName') !== null &&
@@ -111,7 +121,7 @@ class DefaultController extends Controller {
                         ->setActualVehiculStrenghs($actualVehiculStrenghs)
                         ->setFuturVehiculName($this->get('request')->get('futurVehiculName'))
                         ->setFuturVehiculStrenghs($futurVehiculStrenghs)
-                        ->setMailId(0)
+                        ->setMailId($this->get('request')->get('emailing_survey'))
                         ->setActivated(FALSE)
                         ->setDate(new \DateTime());
 
@@ -128,12 +138,14 @@ class DefaultController extends Controller {
                     'Aucun client trouvé pour cet id : ' . $id
             );
         }
-        
+
         return $this->render('IPMotorsFormEditBundle:Default:update.html.twig', array(
                     'survey' => $survey,
                     'strenghs' => $strenghs,
                     'actualStrenghs' => $actualStrenghs,
                     'futurStrenghs' => $futurStrenghs,
+                    'emailings' => $emailings,
+                    'mailId' => $survey->getMailId()
         ));
     }
 
