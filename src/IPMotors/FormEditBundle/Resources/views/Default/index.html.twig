@@ -30,8 +30,8 @@
                     <p>activé</p>
                 {%endif %}                       
             </td>
-            <td><a href="{{ path('ip_motors_form_edit_delete', { 'id': object.id }) }}">X</a> 
-                <a href="{{ path('ip_motors_form_edit_update', { 'id': object.id }) }}">M</a></td>
+            <td><a class="glyphicon glyphicon-remove-circle" href="{{ path('ip_motors_form_edit_delete', { 'id': object.id }) }}"></a> 
+                <a style="margin-left: 5px;" class="glyphicon glyphicon-pencil" href="{{ path('ip_motors_form_edit_update', { 'id': object.id }) }}"></a></td>
         </tr>
         {% endfor %}
     </tbody>
