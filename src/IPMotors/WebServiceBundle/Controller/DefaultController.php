@@ -103,6 +103,11 @@ class DefaultController extends Controller {
                 $idSurvey = $this->getDoctrine()
                                  ->getRepository('IPMotorsFormEditBundle:Survey')
                                  ->getCurrent()->getId();
+                
+                $idMail  = $this->getDoctrine()
+                                 ->getRepository('IPMotorsFormEditBundle:Survey')
+                                 ->getCurrent()->getMailId();
+                
             } catch (Doctrine\ORM\NonUniqueResultException $e) {
                 
                 $response = new JsonResponse(array(
@@ -164,10 +169,36 @@ class DefaultController extends Controller {
                 $message = array(
                     'success' => "Enregistrement de l'enquête validé."
                 );
+                
+               
+                $repoMail = $em->getRepository('IPMotorsMailBundle:Mail');
+                
+                $mail = $repoMail->find($idMail);
+                
+                try {
+                    
+//                    $mySendMail = \Swift_Message::newInstance('smtp.gmail.com', 465, "ssl")
+//                    ->setSubject($mail->getTitle())
+//                    ->setFrom($mail->getExpeditor())
+//                    ->setTo($request->request->get('email'))
+//                    ->setBody($mail->getContent())
+//                    ;
+//                    $this->get('mailer')->send($mySendMail);
+                    
+                } catch (\Swift_TransportException $e) {
+                    
+                    $response = new JsonResponse(array(
+                         'error' => 'Impossible d\'enregistrer les données. Serveur mail hors-service'
+                     ));
+                    $response->headers->set('Content-Type', 'application/json');
 
+                    return $response;
+                    
+                }
+                
             } catch (Doctrine\ORM\ORMException $e ) {
                 $message = array(
-                    'error' => 'Impossible d\'enregistrer les données' . $e->getMessage()
+                    'error' => 'Impossible d\'enregistrer les données. Données doctrine invalides.'
                 );
             }
         } else {
@@ -175,7 +206,6 @@ class DefaultController extends Controller {
                 'error' => 'Aucune données: ' . $e->getMessage()
             );
         }
-        
         $response = new JsonResponse($message);
 
         $response->headers->set('Content-Type', 'application/json');

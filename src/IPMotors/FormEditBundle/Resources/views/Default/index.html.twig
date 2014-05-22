@@ -25,9 +25,9 @@
             <td>{{ object.date|date('Y-m-d')}}</td>
             <td>
                 {% if not object.activated %}
-                    <a href="{{ path('ip_motors_form_edit_activate', {'id': object.id}) }}" class="btn btn-danger btn-sm">activer</a>
-                {% else %}    
-                    <p>activé</p>
+                    <a href="{{ path('ip_motors_form_edit_activate', {'id': object.id}) }}" class="btn btn-danger btn-sm">Activer</a>
+                {% else %}
+                    <button class="btn btn-success btn-sm">Activé</button>
                 {%endif %}                       
             </td>
             <td><a class="glyphicon glyphicon-remove-circle" href="{{ path('ip_motors_form_edit_delete', { 'id': object.id }) }}"></a> 
