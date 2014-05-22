@@ -55,7 +55,7 @@ class Customer
      *
      * @ORM\Column(name="town", type="string", length=45)
      */
-    private $town;
+    private $town = "NULL";
     
     /**
      * @var string
@@ -102,10 +102,51 @@ class Customer
     /**
      * @var integer
      *
-     * @ORM\Column(name="fk_id_survey", type="integer",)
+     * @ORM\Column(name="fk_id_survey", type="integer")
      */
     private $idSurvey;
     
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="choix1", type="integer")
+     */
+    private $choix1 = 0;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="choix2", type="integer")
+     */
+    private $choix2 = 0;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="choix3", type="integer")
+     */
+    private $choix3 = 0;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="choix4", type="integer")
+     */
+    private $choix4 = 0;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="choix5", type="integer")
+     */
+    private $choix5 = 0;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="choix6", type="integer")
+     */
+    private $choix6 = 0;
     
     /**
      * Get id
@@ -193,7 +234,7 @@ class Customer
      * @param string $adresse
      * @return Customer
      */
-    public function setPostal($postal)
+    public function setPostal($postal  = "NULL")
     {
         $this->postal = $postal;
 
@@ -218,7 +259,7 @@ class Customer
      * @param string $adresse
      * @return Customer
      */
-    public function setTown($town)
+    public function setTown($town = "NULL")
     {
         $this->postal = $town;
 
@@ -372,4 +413,71 @@ class Customer
     {
         return $this->modelVehicule;
     }
+    
+    public function getIdSurvey() {
+        return $this->idSurvey;
+    }
+
+    public function setIdSurvey($idSurvey) {
+        $this->idSurvey = $idSurvey;
+        
+        return $this;
+    }
+    
+    public function getChoix1() {
+        return $this->choix1;
+    }
+
+    public function getChoix2() {
+        return $this->choix2;
+    }
+
+    public function getChoix3() {
+        return $this->choix3;
+    }
+
+    public function getChoix4() {
+        return $this->choix4;
+    }
+
+    public function getChoix5() {
+        return $this->choix5;
+    }
+
+    public function getChoix6() {
+        return $this->choix6;
+    }
+
+    public function setChoix1($choix1) {
+        $this->choix1 = $choix1;
+        return $this;
+    }
+
+    public function setChoix2($choix2) {
+        $this->choix2 = $choix2;
+        return $this;
+    }
+
+    public function setChoix3($choix3) {
+        $this->choix3 = $choix3;
+        return $this;
+    }
+
+    public function setChoix4($choix4) {
+        $this->choix4 = $choix4;
+        return $this;
+    }
+
+    public function setChoix5($choix5) {
+        $this->choix5 = $choix5;
+        return $this;
+    }
+
+    public function setChoix6($choix6) {
+        $this->choix6 = $choix6;
+        return $this;
+    }
+
+
+    
 }

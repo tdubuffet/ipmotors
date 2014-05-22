@@ -86,74 +86,98 @@ class DefaultController extends Controller {
     
     public function getDataSurveyAction()
     {
-        $request = $this->get('request');
+        header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+        header('Access-Control-Max-Age: 1000');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+        
+        $request = $this->getRequest();
         
         if ($request->getMethod() == 'POST') {            
             $customer = new \IPMotors\CustomerBundle\Entity\Customer();
             $choices  = new \IPMotors\ChoicesBundle\Entity\Choices();
             
-            $idSurvey = $this->getDoctrine()
-                             ->getRepository('IPMotorsFormEditBundle:Survey')
-                             ->getCurrent()
-                             ->getId();
-            
-            $customers = $this->getDoctrine()
-                              ->getRepository('IPMotorsCustomerBundle:Customer')
-                              ->findAll();
-            
+            /**
+             * Aucune enquête
+             */
             try{
-                $customerExist = $this->getDoctrine()
-                                      ->getRepository('IPMotorsFormEditBundle:Survey')
-                                      ->findBy(array(
-                                          'email'    => $request->request->get('email'),
-                                          'idSurvey' => $idSurvey
-                                      ));
-                $message = array(
-                    'error' => 'Vous vous êtes déjà inscrit à l\'enquête.'
-                );
+                $idSurvey = $this->getDoctrine()
+                                 ->getRepository('IPMotorsFormEditBundle:Survey')
+                                 ->getCurrent()->getId();
+            } catch (Doctrine\ORM\NonUniqueResultException $e) {
                 
-            } catch(Doctrine\ORM\NoResultException $e){
-                $customer->setNom($request->request->get('name'))
-                         ->setPrenom($request->request->get('surname'))
-                         ->setAdresse($request->request->get('adress'))
-                         ->setTelephone($request->request->get('tel'))
-                         ->setDateNaissance($request->request->get('birthday'))
-                         ->setEmail($request->request->get('email'))
-                         ->setBrandVehicule($request->request->get('brand'))
-                         ->setTypeVehicule($request->request->get('type'))
-                         ->setModelVehicule($request->request->get('model'));
+                $response = new JsonResponse(array(
+                    'error' => 'Aucune enquête en cours'
+                ));
+                $response->headers->set('Content-Type', 'application/json');
 
-                $choices->setChoixUn($request->request->get('choix1'))
-                        ->setChoixDeux($request->request->get('choix2'))
-                        ->setChoixTrois($request->request->get('choix3'))
-                        ->setChoixQuatre($request->request->get('choix4'))
-                        ->setChoixCinq($request->request->get('choix5'))
-                        ->setChoixSix($request->request->get('choix6'));
-
-                try {
-
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($customer);
-                    $em->persist($choices);
-                    $em->flush();
-
-                } catch ( \Exception $e ) {
-                    $message = array(
-                        'error' => 'Impossible d\'enregistrer les données'
-                    );
-                }
+                return $response;
+                
             }
             
+            
+            $val = $this->getDoctrine()
+                        ->getRepository('IPMotorsCustomerBundle:Customer')
+                        ->findBy(array(
+                            'email'    => $request->request->get('email'),
+                            'idSurvey' => $idSurvey
+                        ));
+            
+            /**
+             * Déja inscrit à l'enquête
+             */
+            if (count($val) > 0) {
+                
+                $response = new JsonResponse(array(
+                    'error' => 'Vous vous êtes déjà inscrit à l\'enquête.'
+                ));
+                
+                $response->headers->set('Content-Type', 'application/json');
+
+                return $response;
+            }
+            
+            $customer->setNom           ($request->request->get('name'))
+                    ->setPrenom         ($request->request->get('surname'))
+                    ->setAdresse        ($request->request->get('adress'))
+                    ->setTelephone      ($request->request->get('tel'))
+                    ->setDateNaissance  (new \DateTime($request->request->get('birthday')))
+                    ->setEmail          ($request->request->get('email'))
+                    ->setBrandVehicule  ($request->request->get('brand'))
+                    ->setTypeVehicule   ($request->request->get('type'))
+                    ->setModelVehicule  ($request->request->get('model'))
+                    ->setIdSurvey($idSurvey)
+                    ->setPostal()
+                    ->setTown()
+                    ->setChoix1         ($request->request->get('choix1'))
+                    ->setChoix2         ($request->request->get('choix2'))
+                    ->setChoix3         ($request->request->get('choix3'))
+                    ->setChoix4         ($request->request->get('choix4'))
+                    ->setChoix5         ($request->request->get('choix5'))
+                    ->setChoix6         ($request->request->get('choix6'));
+           
+            try {
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($customer);
+                $em->flush();
+
+                $message = array(
+                    'success' => "Enregistrement validé."
+                );
+
+            } catch (Doctrine\ORM\ORMException $e ) {
+                $message = array(
+                    'error' => 'Impossible d\'enregistrer les données' . $e->getMessage()
+                );
+            }
         }
         
-        $message = array(
-            'success' => "Enregistrement validé."
-        );
-        
         $response = new JsonResponse($message);
+
         $response->headers->set('Content-Type', 'application/json');
-        
+
         return $response;
+        
     }
 
 }
