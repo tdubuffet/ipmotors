@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-<form name="input" action="??????" method="post">
+<form name="input" action="" method="post">
 
     <div class="row">
         <div class="form-group col-md-4"></div>
@@ -21,6 +21,7 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="va1" id="focusedInput">
+                <option value="0">---</option> 
         {% for object in strenghs %}
                 <option value="{{object.id}}">{{object.name}}</option> 
         {% endfor%}
@@ -28,6 +29,7 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="va2" id="focusedInput">
+                <option value="0">---</option> 
         {% for object in strenghs %}
                 <option value="{{object.id}}">{{object.name}}</option> 
         {% endfor%}
@@ -35,6 +37,7 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="va3" id="focusedInput">
+                <option value="0">---</option> 
         {% for object in strenghs %}
                 <option value="{{object.id}}">{{object.name}}</option> 
         {% endfor%}
@@ -47,6 +50,7 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="vf1" id="focusedInput">
+                <option value="0">---</option> 
         {% for object in strenghs %}
                 <option value="{{object.id}}">{{object.name}}</option> 
         {% endfor%}
@@ -54,6 +58,7 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="vf2" id="focusedInput">
+                <option value="0">---</option> 
         {% for object in strenghs %}
                 <option value="{{object.id}}">{{object.name}}</option> 
         {% endfor%}
@@ -61,6 +66,7 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="vf3" id="focusedInput" >
+                <option value="0">---</option> 
         {% for object in strenghs %}
                 <option value="{{object.id}}">{{object.name}}</option> 
         {% endfor%}

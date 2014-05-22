@@ -23,5 +23,28 @@ class CustomerRepository extends EntityRepository {
         $query->setParameter('key', '%'.$key.'%');
         return $query->getResult();
     }
+    
+    public function exportData($parameters) 
+    {
+        
+        $findBy = array();
+        for($i = 0; $i<6; $i++) {
+            if (isset($parameters['va' . $i]) && $parameters['va' . $i] != 0) {
+                $findBy['choix' . $i] = $parameters['va' . $i];
+            }
+        }
+        
+        
+        $vals = $this->findBy($findBy);
+        
+        $returnValue = array();
+        
+        foreach($vals as $customer) {
+            $returnValue[] = $customer->getEmail();
+        }
+        
+        return $returnValue;
+        
+    }
 
 }
