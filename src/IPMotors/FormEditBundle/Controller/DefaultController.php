@@ -156,5 +156,26 @@ class DefaultController extends Controller {
 
         return $this->redirect($this->generateUrl('ip_motors_form_edit_homepage'));
     }
-
+    
+    public function activateFormAction($id){
+        
+        $allSurvey = $this->getDoctrine()
+                    ->getRepository('IPMotorsFormEditBundle:Survey')
+                    ->findAll();
+        foreach($allSurvey as $s){
+            $s->setActivated(0);
+        }
+                
+        $survey = $this->getDoctrine()
+                    ->getRepository('IPMotorsFormEditBundle:Survey')
+                    ->find($id);
+                    $survey->setActivated(1);
+                    
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+                    
+        return $this->redirect($this->generateUrl('ip_motors_form_edit_homepage'));
+                
+    }
+    
 }

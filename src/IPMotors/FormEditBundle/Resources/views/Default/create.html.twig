@@ -3,10 +3,12 @@
 {% block body %}
     <form action="{{ path('ip_motors_form_edit_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
-
-        <div>
-            <label for="survey_name">Nom Enquête</label>
-            <input type="text" value="" name="survey_name"/>
+        
+        <div class="form-group">
+            <label for="survey_name" class="col-lg-2 control-label">Nom Enquête:</label>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" value="" name="survey_name"/>
+            </div>
         </div>
 
         <ul class="nav nav-tabs" style="margin-bottom: 15px;">
@@ -18,17 +20,17 @@
             <div class="tab-pane fade active in" id="home">
                 <div class="jumbotron clearfix" >
                     <div class="form-group">
-                        <label for="inputEmail" class="col-lg-2 control-label">Modèle Sujet de l'enquète :</label>
-                        <div class="col-lg-10">
-                            <input type="text" name="actualVehiculName"/>
+                        <label for="inputEmail" class="col-lg-2">Modèle Sujet de l'enquète :</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" name="actualVehiculName"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="pre-selected-options" class="col-lg-2 control-label">Points Forts du modèle :</label>
+                        <label for="pre-selected-options" class="col-lg-2">Points Forts du modèle :</label>
                         <div class="col-lg-10">
                             <div class="col-md-3"><p>Liste</p></div>
                             <div class="col-md-3"><p>Points Forts</p></div>
-                            <select id='pre-selected-options1' multiple='multiple' name="actual_strenghs_survey[]">
+                            <select class="form-control" id='pre-selected-options1' multiple='multiple' name="actual_strenghs_survey[]">
                                 {% for object in strenghs %}
                                     <option value='{{ object.id }}'>{{ object.name }}</option>
                                 {% endfor %}
@@ -39,9 +41,9 @@
             <div class="tab-pane fade" id="profile">
                 <div class="jumbotron clearfix" >
                     <div class="form-group">
-                        <label for="inputEmail" class="col-lg-2 control-label">Modèle Sujet de l'enquète :</label>
-                        <div class="col-lg-10">
-                            <input type="text" name="futurVehiculName"/>
+                        <label for="inputEmail" class="col-lg-2">Modèle Sujet de l'enquète :</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" name="futurVehiculName"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -69,7 +71,11 @@
                 </div>
             </div>
         </div>
-        <input type="submit" value="enregistrer">
+        <div class="form-group">
+            <div class="col-lg-10">
+              <input type="submit" class="btn btn-primary" value="enregistrer">
+            </div>
+        </div>
     </form>
 
 {% endblock %}

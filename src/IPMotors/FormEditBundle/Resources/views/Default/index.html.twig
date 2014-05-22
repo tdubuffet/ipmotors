@@ -23,7 +23,13 @@
             <td>{{ object.actualVehiculName }}</td>
             <td>{{ object.futurVehiculName }}</td>
             <td>{{ object.date|date('Y-m-d')}}</td>
-            <td>{{ object.activated }}</td>
+            <td>
+                {% if not object.activated %}
+                    <a href="{{ path('ip_motors_form_edit_activate', {'id': object.id}) }}" class="btn btn-danger btn-sm">activer</a>
+                {% else %}    
+                    <p>activé</p>
+                {%endif %}                       
+            </td>
             <td><a href="{{ path('ip_motors_form_edit_delete', { 'id': object.id }) }}">X</a> 
                 <a href="{{ path('ip_motors_form_edit_update', { 'id': object.id }) }}">M</a></td>
         </tr>

@@ -1,3 +1,7 @@
+ip_motors_form_edit_activate:
+    pattern: /formedit/activateForm/{id}
+    defaults: { _controller: IPMotorsFormEditBundle:Default:activateForm }
+
 ip_motors_form_edit_homepage:
     pattern:  /formedit
     defaults: { _controller: IPMotorsFormEditBundle:Default:index }
