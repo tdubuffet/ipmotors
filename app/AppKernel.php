@@ -27,7 +27,7 @@ class AppKernel extends Kernel {
             new IPMotors\MailBundle\IPMotorsMailBundle(),
             new IPMotors\MarketingBundle\IPMotorsMarketingBundle(),
             
-            //new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new IPMotors\ChoicesBundle\IPMotorsChoicesBundle(),
         );
 
