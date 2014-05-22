@@ -79,6 +79,27 @@ class Customer
     private $email;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type_vehicule", type="string", length=120)
+     */
+    private $typeVehicule;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="brand_vehicule", type="string", length=120)
+     */
+    private $brandVehicule;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="model_vehicule", type="string", length=120)
+     */
+    private $modelVehicule;
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -273,5 +294,74 @@ class Customer
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set type_vehicule
+     *
+     * @param string $email
+     * @return Customer
+     */
+    public function setTypeVehicule($typeVehicule)
+    {
+        $this->typeVehicule = $typeVehicule;
+
+        return $this;
+    }
+
+    /**
+     * Get type_vehicule
+     *
+     * @return string 
+     */
+    public function getTypeVehicule()
+    {
+        return $this->typeVehicule;
+    }
+
+    /**
+     * Set brand_vehicule
+     *
+     * @param string $email
+     * @return Customer
+     */
+    public function setBrandVehicule($brandVehicule)
+    {
+        $this->brandVehicule = $brandVehicule;
+
+        return $this;
+    }
+
+    /**
+     * Get brand_vehicule
+     *
+     * @return string 
+     */
+    public function getBrandVehicule()
+    {
+        return $this->brandVehicule;
+    }
+
+    /**
+     * Set model_vehicule
+     *
+     * @param string $email
+     * @return Customer
+     */
+    public function setModelVehicule($modelVehicule)
+    {
+        $this->modelVehicule = $modelVehicule;
+
+        return $this;
+    }
+
+    /**
+     * Get model_vehicule
+     *
+     * @return string 
+     */
+    public function getModelVehicule()
+    {
+        return $this->modelVehicule;
     }
 }

@@ -1,0 +1,30 @@
+IPMotors\ChoicesBundle\Entity\Choices:
+    type: entity
+    table: null
+    repositoryClass: IPMotors\ChoicesBundle\Entity\ChoicesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        choixUn:
+            type: integer
+            column: choix_un
+        choixDeux:
+            type: integer
+            column: choix_deux
+        choixTrois:
+            type: integer
+            column: choix_trois
+        choixQuatre:
+            type: integer
+            column: choix_quatre
+        choixCinq:
+            type: integer
+            column: choix_cinq
+        choixSix:
+            type: integer
+            column: choix_six
+    lifecycleCallbacks: {  }

@@ -5,3 +5,7 @@ ip_motors_web_service_homepage:
 ip_motors_web_service_survey:
     pattern:  /webservice/survey
     defaults: { _controller: IPMotorsWebServiceBundle:Default:survey }
+
+ip_motors_web_service_getdatasurvey:
+    pattern:  /webservice/getdatasurvey
+    defaults: { _controller: IPMotorsWebServiceBundle:Default:getdatasurvey }

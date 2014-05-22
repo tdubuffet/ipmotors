@@ -82,5 +82,34 @@ class DefaultController extends Controller {
         return $response;
         
     }
+    
+    public function getDataSurveyAction()
+    {
+        $request = $this->get('request');
+        
+        if ($request->getMethod() == 'POST') {
+            $customer = new \IPMotors\CustomerBundle\Entity\Customer();
+            $choices  = new \IPMotors\ChoicesBundle\Entity\Choices();
+            
+            $customer->setNom($request->request->get('name'));
+            $customer->setPrenom($request->request->get('surname'));
+            $customer->setAdresse($request->request->get('adress'));
+            $customer->setTelephone($request->request->get('tel'));
+            $customer->setDateNaissance($request->request->get('birthday'));
+            $customer->setEmail($request->request->get('email'));
+            $customer->setBrandVehicule($request->request->get('brand'));
+            $customer->setTypeVehicule($request->request->get('type'));
+            $customer->setModelVehicule($request->request->get('model'));
+            
+            $choices->setChoixUn($request->request->get('choix1'));
+            $choices->setChoixUn($request->request->get('choix2'));
+            $choices->setChoixUn($request->request->get('choix3'));
+            $choices->setChoixUn($request->request->get('choix4'));
+            $choices->setChoixUn($request->request->get('choix5'));
+            $choices->setChoixUn($request->request->get('choix6'));
+        }
+        
+        return '1';
+    }
 
 }

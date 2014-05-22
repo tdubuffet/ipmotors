@@ -1,3 +1,7 @@
+ip_motors_choices:
+    resource: "@IPMotorsChoicesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ip_motors_form_edit:
     resource: "@IPMotorsFormEditBundle/Resources/config/routing.yml"
     prefix:   /

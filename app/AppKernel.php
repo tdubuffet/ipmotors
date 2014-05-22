@@ -27,6 +27,7 @@ class AppKernel extends Kernel {
             new IPMotors\MailBundle\IPMotorsMailBundle(),
             
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new IPMotors\ChoicesBundle\IPMotorsChoicesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
