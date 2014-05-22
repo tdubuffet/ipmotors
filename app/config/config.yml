@@ -75,6 +75,12 @@ fos_user:
     registration:
         form:
             type: ipmotors_userbundle_user_registration
+        confirmation:
+            from_email:
+                address: "contact@ipmotors.com"
+                sender_name: "Admin IPMotors"
+            enabled: true
+            template: FOSUserBundle:Registration:email.txt.twig
     profile:
         form:
             type: ipmotors_userbundle_user_profile

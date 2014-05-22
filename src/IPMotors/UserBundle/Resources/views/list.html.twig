@@ -45,11 +45,13 @@
                             </strong>
                         </td>                    
                         <td>
-                            {% if "ROLE_ADMIN" in user.roles %}
-                                <a href="{{ path('ip_motors_demote_admin', {username : user.username}) }}" class="btn btn-danger btn-sm">Rétrograder</a>
-                            {% else %}
-                                <a href="{{ path('ip_motors_promote_admin', {username : user.username}) }}" class="btn btn-success btn-sm">Promouvoir</a>   
-                            {%endif %}
+                            {% if app.user.id != user.id %}
+                                {% if "ROLE_ADMIN" in user.roles %}
+                                    <a href="{{ path('ip_motors_demote_admin', {username : user.username}) }}" class="btn btn-danger btn-sm">Rétrograder</a>
+                                {% else %}
+                                    <a href="{{ path('ip_motors_promote_admin', {username : user.username}) }}" class="btn btn-success btn-sm">Promouvoir</a>   
+                                {%endif %}
+                            {% endif %}
                         </td>
 
                         <td> 
@@ -62,11 +64,13 @@
                             </strong> 
                         </td>
                         <td>
-                            {% if user.enabled %}
-                                <a href="{{ path('ip_motors_desactivate_user', {username : user.username}) }}" class="btn btn-danger btn-sm">Désactiver</a>
-                            {% else %}
-                                <a href="{{ path('ip_motors_activate_user', {username : user.username}) }}" class="btn btn-success btn-sm">Activer</a>   
-                            {%endif %}                       
+                            {% if app.user.id != user.id %}
+                                {% if user.enabled %}
+                                    <a href="{{ path('ip_motors_desactivate_user', {username : user.username}) }}" class="btn btn-danger btn-sm">Désactiver</a>
+                                {% else %}
+                                    <a href="{{ path('ip_motors_activate_user', {username : user.username}) }}" class="btn btn-success btn-sm">Activer</a>   
+                                {%endif %}    
+                            {% endif %}
                         </td>
                         <td>
                             <a href="{{ path('ip_motors_edit_user', {id : user.id}) }}" class="btn btn-info btn-sm">Modifier le profil</a>                  

@@ -49,6 +49,8 @@ class MailController extends Controller {
 
         $form = $this->createForm(new MailType, $mail);
 
+        $mailId = $mail->getId();
+
 
         $request = $this->getRequest();
 
@@ -65,14 +67,13 @@ class MailController extends Controller {
 
 
         return $this->render('IPMotorsMailBundle:Mail:edit.html.twig', array(
-                    'form' => $form->createView()
+                    'form' => $form->createView(),
+                    'mailId' => $mailId
         ));
     }
 
-    public function testAction() {
+    public function testAction(Mail $mail) {
 
-        $em = $this->getDoctrine()->getManager();
-        $mail = $em->getRepository('IPMotorsMailBundle:Mail')->find(1);
 
         $myMail = $this->container->get('security.context')->getToken()->getUser()->getEmail();
 
@@ -86,7 +87,7 @@ class MailController extends Controller {
         $this->get('session')->getFlashBag()->add('info', 'Le mail test a bien été envoyé');
         $this->get('mailer')->send($message);
 
-        return $this->redirect($this->generateUrl('ip_motors_mail_edit'));
+        return $this->redirect($this->generateUrl('ip_motors_mail_list'));
     }
 
     public function deleteAction(Mail $mail) {
