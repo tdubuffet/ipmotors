@@ -32,7 +32,9 @@
                     <div class="alert alert-dismissable alert-success">
                     <h4>Installation</h4>';
 
-            
+            if (exec('php app/console doctrine:database:create')) {
+                echo '<p>Base de données crée</p>';
+            }
             if (exec('php app/console doctrine:schema:update --force')) {
                 echo '<p>Tables ajoutées dans la base de données</p>';
             }
@@ -57,8 +59,8 @@
                         <p><span class="badge">2</span> Avoir un serveur MySQL 5.0.,</p>
                         <p><span class="badge">3</span> Avoir un serveur Apache ou NginX,</p>
                         <p><span class="badge">4</span> Configurer la variable d\'environnement PHP,</p>
-                        <p><span class="badge">5</span> Avoir <a href="https://getcomposer.org/" target="_blank">Composer</a> sur le serveur,</p>
-                        <p><span class="badge">5</span> Configurer le fichier parameters.yml</p>
+                        <p><span class="badge">5</span> Avoir <a href="https://getcomposer.org/" target="_blank">Composer</a> sur le serveur et</p>
+                        <p><span class="badge">6</span> Configurer le fichier parameters.yml</p>
                     </div>
                 </div>' ;
         }
