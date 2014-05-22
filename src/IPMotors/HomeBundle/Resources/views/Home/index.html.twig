@@ -2,42 +2,43 @@
 
 {% block body %}
     <div class="page-header" id="banner">
+
         <div class="row">
             <div class="col-lg-6">
-                <div>
-                    <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 120px;
-width: 250px;
-margin-left: 187px;">Clients</button>
+                <div class="well sponsor home-well">
+                    <h1><a href="{{ path('ip_motors_customer_homepage') }}">Clients</a></h1>
                 </div>
             </div>
-            
             <div class="col-lg-6">
-                <div>
-                    <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 120px;width: 250px;margin-left: 115px">Marketing</button>
+                <div class="well sponsor home-well">
+                    <h1><a href="#">Marketing</a></h1>
                 </div>
             </div>
         </div>
-        
-        
-        <div class="row" style="margin-top: 160px">
+
+
+        <div class="row">
             <div class="col-lg-6">
-                <div>
-                    <button type="button" class="btn btn-primary btn-lg btn-block"style="height: 120px;
-                                                                                         width: 250px;
-                                                                                         margin-left: 187px;"><div>Edition</div> 
-                        <div>formulaire</div>
-                    </button>
+                <div class="well sponsor home-well">
+                    <h1><a href="{{ path('ip_motors_form_edit_homepage') }}">Edition du formulaire</a></h1>
                 </div>
             </div>
-            
             <div class="col-lg-6">
-                <div>
-                    <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 120px;width: 250px;margin-left: 115px">Utilisateurs</button>
+                <div class="well sponsor home-well">
+                    <h1><a href="{{ path('ip_motors_users_list') }}">Utilisateurs</a></h1>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="well sponsor home-well">
+                    <h1><a href="{{ path('ip_motors_mail_list') }}">Gestion des notification mails</a></h1>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
             </div>
         </div>
     </div>
-
-
-
 {% endblock %}
