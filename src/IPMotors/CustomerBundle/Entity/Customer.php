@@ -100,6 +100,14 @@ class Customer
     private $modelVehicule;
     
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="fk_id_survey", type="integer",)
+     */
+    private $idSurvey;
+    
+    
+    /**
      * Get id
      *
      * @return integer 

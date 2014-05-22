@@ -4,6 +4,7 @@ namespace IPMotors\WebServiceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use IPMotors\FormEditBundle\Entity\SurveyRepository;
 
 class DefaultController extends Controller {
 
@@ -87,29 +88,72 @@ class DefaultController extends Controller {
     {
         $request = $this->get('request');
         
-        if ($request->getMethod() == 'POST') {
+        if ($request->getMethod() == 'POST') {            
             $customer = new \IPMotors\CustomerBundle\Entity\Customer();
             $choices  = new \IPMotors\ChoicesBundle\Entity\Choices();
             
-            $customer->setNom($request->request->get('name'));
-            $customer->setPrenom($request->request->get('surname'));
-            $customer->setAdresse($request->request->get('adress'));
-            $customer->setTelephone($request->request->get('tel'));
-            $customer->setDateNaissance($request->request->get('birthday'));
-            $customer->setEmail($request->request->get('email'));
-            $customer->setBrandVehicule($request->request->get('brand'));
-            $customer->setTypeVehicule($request->request->get('type'));
-            $customer->setModelVehicule($request->request->get('model'));
+            $idSurvey = $this->getDoctrine()
+                             ->getRepository('IPMotorsFormEditBundle:Survey')
+                             ->getCurrent()
+                             ->getId();
             
-            $choices->setChoixUn($request->request->get('choix1'));
-            $choices->setChoixUn($request->request->get('choix2'));
-            $choices->setChoixUn($request->request->get('choix3'));
-            $choices->setChoixUn($request->request->get('choix4'));
-            $choices->setChoixUn($request->request->get('choix5'));
-            $choices->setChoixUn($request->request->get('choix6'));
+            $customers = $this->getDoctrine()
+                              ->getRepository('IPMotorsCustomerBundle:Customer')
+                              ->findAll();
+            
+            try{
+                $customerExist = $this->getDoctrine()
+                                      ->getRepository('IPMotorsFormEditBundle:Survey')
+                                      ->findBy(array(
+                                          'email'    => $request->request->get('email'),
+                                          'idSurvey' => $idSurvey
+                                      ));
+                $message = array(
+                    'error' => 'Vous vous êtes déjà inscrit à l\'enquête.'
+                );
+                
+            } catch(Doctrine\ORM\NoResultException $e){
+                $customer->setNom($request->request->get('name'))
+                         ->setPrenom($request->request->get('surname'))
+                         ->setAdresse($request->request->get('adress'))
+                         ->setTelephone($request->request->get('tel'))
+                         ->setDateNaissance($request->request->get('birthday'))
+                         ->setEmail($request->request->get('email'))
+                         ->setBrandVehicule($request->request->get('brand'))
+                         ->setTypeVehicule($request->request->get('type'))
+                         ->setModelVehicule($request->request->get('model'));
+
+                $choices->setChoixUn($request->request->get('choix1'))
+                        ->setChoixDeux($request->request->get('choix2'))
+                        ->setChoixTrois($request->request->get('choix3'))
+                        ->setChoixQuatre($request->request->get('choix4'))
+                        ->setChoixCinq($request->request->get('choix5'))
+                        ->setChoixSix($request->request->get('choix6'));
+
+                try {
+
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($customer);
+                    $em->persist($choices);
+                    $em->flush();
+
+                } catch ( \Exception $e ) {
+                    $message = array(
+                        'error' => 'Impossible d\'enregistrer les données'
+                    );
+                }
+            }
+            
         }
         
-        return '1';
+        $message = array(
+            'success' => "Enregistrement validé."
+        );
+        
+        $response = new JsonResponse($message);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
     }
 
 }
