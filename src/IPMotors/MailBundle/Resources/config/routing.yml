@@ -14,8 +14,10 @@ ip_motors_mail_edit:
         id : \d+
 
 ip_motors_mail_test:
-    pattern:  /test
+    pattern:  /test/{id}
     defaults: { _controller: IPMotorsMailBundle:Mail:test }
+    requirements :
+        id : \d+
 
 ip_motors_mail_delete:
     pattern:  /delete/{id}

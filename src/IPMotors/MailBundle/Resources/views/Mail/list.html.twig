@@ -28,9 +28,10 @@
                         <td>{{ mailing.id }}</td>
                         <td>{{ mailing.title }}</td>
                         <td>{{ mailing.expeditor }}</td>
-              
+
                         <td>
                             <a href="{{ path('ip_motors_mail_edit', {id : mailing.id}) }}" class="btn btn-info btn-sm">Modifier</a>   
+                            <a href="{{ path('ip_motors_mail_test', {id : mailing.id}) }}" class="btn btn-info btn-sm">S'envoyer un mail test</a>
                         </td>
                         <td>
                             <a href="{{ path('ip_motors_mail_delete', {id : mailing.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>   

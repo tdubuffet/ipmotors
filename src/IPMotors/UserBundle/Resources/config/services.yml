@@ -12,3 +12,9 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: ipmotors_userbundle_user_profile }
+
+    ipmotors_user.registration_complet:
+        class: IPMotors\UserBundle\EventListener\RegistrationConfirmListener
+        arguments: [@router]
+        tags:
+            - { name: kernel.event_subscriber }
