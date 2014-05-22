@@ -29,8 +29,8 @@
             <td>{{ customer.postal }}</td>
             <td>{{ customer.town }}</td>
             <td>{{ customer.dateNaissance|date('Y-m-d') }}</td>
-            <td><a href="{{ path('ip_motors_customer_delete', { 'id': customer.id }) }}">X</a> 
-                <a href="{{ path('ip_motors_customer_update', { 'id': customer.id }) }}">M</a></td>
+            <td><a class="glyphicon glyphicon-remove-circle"  href="{{ path('ip_motors_customer_delete', { 'id': customer.id }) }}"></a> 
+                <a style="margin-left: 5px;" class="glyphicon glyphicon-pencil" href="{{ path('ip_motors_customer_update', { 'id': customer.id }) }}"></a></td>
         </tr>
     {% endfor %}
     </tbody>
