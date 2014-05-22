@@ -15,8 +15,11 @@
         <tr>
             <td>{{ object.id }}</td>
             <td>{{ object.name }}</td>
-            <td><a href="{{ path('ip_motors_strenghs_delete', { 'id': object.id }) }}">X</a> 
-                <a href="{{ path('ip_motors_strenghs_update', { 'id': object.id }) }}">M</a></td>
+            <td>
+                <div style="float:right;">
+                <a href="{{ path('ip_motors_strenghs_delete', { 'id': object.id }) }}"><button type="button" class="btn btn-primary">Suprimer</button></a> 
+                <a href="{{ path('ip_motors_strenghs_update', { 'id': object.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                </div>
         </tr>
     {% endfor %}
     </tbody>

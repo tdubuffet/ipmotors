@@ -30,3 +30,6 @@ ip_motors_user:
     resource: "@IPMotorsUserBundle/Resources/config/routing.yml"
     prefix:   /
 
+ip_motors_marketing:
+    resource: "@IPMotorsMarketingBundle/Resources/config/routing.yml"
+    prefix:   /
