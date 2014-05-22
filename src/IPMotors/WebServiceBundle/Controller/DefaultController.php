@@ -86,7 +86,7 @@ class DefaultController extends Controller {
     
     public function getDataSurveyAction()
     {
-        header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+        header('Access-Control-Allow-Methods: GET, POST');
         header('Access-Control-Max-Age: 1000');
         header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
         
@@ -145,9 +145,9 @@ class DefaultController extends Controller {
                     ->setBrandVehicule  ($request->request->get('brand'))
                     ->setTypeVehicule   ($request->request->get('type'))
                     ->setModelVehicule  ($request->request->get('model'))
-                    ->setIdSurvey($idSurvey)
-                    ->setPostal()
-                    ->setTown()
+                    ->setIdSurvey       ($idSurvey)
+                    ->setPostal         ($request->request->get('codePostal'))
+                    ->setTown           ($request->request->get('town'))
                     ->setChoix1         ($request->request->get('choix1'))
                     ->setChoix2         ($request->request->get('choix2'))
                     ->setChoix3         ($request->request->get('choix3'))
@@ -162,7 +162,7 @@ class DefaultController extends Controller {
                 $em->flush();
 
                 $message = array(
-                    'success' => "Enregistrement validé."
+                    'success' => "Enregistrement de l'enquête validé."
                 );
 
             } catch (Doctrine\ORM\ORMException $e ) {

@@ -146,7 +146,7 @@ class Customer
      *
      * @ORM\Column(name="choix6", type="integer")
      */
-    private $choix6 = 0;
+    private $choix6;
     
     /**
      * Get id
