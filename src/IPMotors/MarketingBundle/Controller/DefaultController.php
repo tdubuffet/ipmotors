@@ -41,5 +41,24 @@ class DefaultController extends Controller
                            ));
     }
     
+    public function query_to_csv($array, $filename, $attachment = false) {
+        
+        if($attachment) {
+            header( 'Content-Type: text/csv' );
+            header( 'Content-Disposition: attachment;filename='.$filename);
+            header("Content-Type: application/force-download; name=\"" . basename($file) . "\""); 
+            header("Content-Transfer-Encoding: binary"); 
+            header("Expires: 0"); 
+            header("Cache-Control: no-cache, must-revalidate"); 
+            header("Pragma: no-cache"); 
+            $fp = fopen('php://output', 'w');
+        } else {
+            $fp = fopen($filename, 'w');
+        }
+        fputcsv($fp, $array);
+        
+        fclose($fp);
+    }
+    
     
 }
