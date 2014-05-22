@@ -1,0 +1,3 @@
+ip_motors_marketing_homepage:
+    pattern:  /marketing
+    defaults: { _controller: IPMotorsMarketingBundle:Default:index }

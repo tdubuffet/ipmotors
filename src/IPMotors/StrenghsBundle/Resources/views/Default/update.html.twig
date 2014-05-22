@@ -12,9 +12,9 @@
 
   {# Affichage des erreurs pour ce champ précis. #}
   {{ form_errors(form.name) }}
-
-  {# Génération de l'input. #}
-  {{ form_widget(form.name) }}
+        
+        {# Génération de l'input. #}
+        {{ form_widget(form.name) }}
     </div>
 
 
@@ -22,6 +22,8 @@
    Dans cet exemple, ce serait « date », « auteur » et « publication »,
    mais aussi le champ CSRF (géré automatiquement par Symfony !)
    et tous les champs cachés (type « hidden »). #}
+<div style="margin-left: 284px;margin-top: -29px;">
 {{ form_rest(form) }}
+</div>
 </form>
 {% endblock %}

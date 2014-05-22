@@ -1,0 +1,7 @@
+parameters:
+#    ip_motors_marketing.example.class: IPMotors\MarketingBundle\Example
+
+services:
+#    ip_motors_marketing.example:
+#        class: %ip_motors_marketing.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
