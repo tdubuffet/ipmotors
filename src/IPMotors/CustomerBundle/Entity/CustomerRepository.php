@@ -24,6 +24,28 @@ class CustomerRepository extends EntityRepository {
         return $query->getResult();
     }
     
+    public function getTowns() {
+        
+        $query = $this->getEntityManager()
+                        ->createQuery("
+	            SELECT c.town FROM IPMotorsCustomerBundle:Customer c
+	            GROUP BY c.town"
+                        );
+        return $query->getResult();
+        
+    }
+    
+    public function getBrands() {
+        
+        $query = $this->getEntityManager()
+                        ->createQuery("
+	            SELECT c.brandVehicule FROM IPMotorsCustomerBundle:Customer c
+	            GROUP BY c.brandVehicule"
+                        );
+        return $query->getResult();
+        
+    }
+    
     public function exportData($parameters) 
     {
         
@@ -40,7 +62,68 @@ class CustomerRepository extends EntityRepository {
         $returnValue = array();
         
         foreach($vals as $customer) {
-            $returnValue[] = $customer->getEmail();
+            
+            $agePass    = true;
+            $brandPass  = true;  
+            $townPass   = true;
+            
+            if ( isset($parameters['ifp3']) && $parameters['ifp3'] !== 'all' ) {
+                
+                
+                $brand1 = str_replace(' ', '', strtolower(strtoupper($customer->getBrandVehicule())));
+                $brand2 = str_replace(' ', '', strtolower(strtoupper($parameters['ifp3'])));
+                
+                if ($brand1 != $brand2) {
+                    $brandPass = false;
+                }
+                
+            }
+            if ( isset($parameters['ifp2']) && $parameters['ifp2'] !== 'all' ) {
+                
+                $town1 = str_replace(' ', '', strtolower(strtoupper($customer->getTown())));
+                $town2 = str_replace(' ', '', strtolower(strtoupper($parameters['ifp2'])));
+                
+                if ($town1 != $town2) {
+                    $townPass = false;
+                }
+                
+            }
+            
+            if ( isset($parameters['ifp1']) && $parameters['ifp1'] !== 'all' ) {
+                $oDateNow = new \DateTime();
+                $oDateBirth = $customer->getDateNaissance();
+                $oDateIntervall = $oDateNow->diff($oDateBirth);
+
+                $age = $oDateIntervall->y;
+                
+                switch($parameters['ifp1']) {
+                    case 1:
+                        if ($age > 25) {
+                            $agePass = false;
+                        }
+                    break;
+                    case 2:
+                        if ($age < 25 || $age > 36 ) {
+                            $agePass = false;
+                        }
+                    break;
+                    case 3:
+                        if ($age < 35 || $age > 56 ) {
+                            $agePass = false;
+                        }
+                    break;
+                    case 4:
+                        if ($age < 56) {
+                            $agePass = false;
+                        }
+                    break;
+                }
+                
+            }
+            
+            if ($agePass && $brandPass && $townPass) {
+                $returnValue[] = $customer->getEmail();
+            }
         }
         
         return $returnValue;

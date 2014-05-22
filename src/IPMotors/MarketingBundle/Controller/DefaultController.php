@@ -9,10 +9,17 @@ use Doctrine\ORM;
 class DefaultController extends Controller {
 
     public function indexAction() {
-        $strenghs = array();
-
-        $surveys = array();
-
+        
+        $strenghs   = array();
+        $surveys    = array();
+        $towns      = array();
+        $brands     = array();
+        
+        $custoRepo = $this->getDoctrine()
+                          ->getRepository('IPMotorsCustomerBundle:Customer');
+        
+        $towns  = $custoRepo->getTowns();
+        $brands = $custoRepo->getBrands();
         try {
             $strenghs = $this->getDoctrine()
                     ->getRepository('IPMotorsStrenghsBundle:Strenghs')
@@ -40,8 +47,7 @@ class DefaultController extends Controller {
             $va5 = $this->get('request')->get('vf2');
             $va6 = $this->get('request')->get('vf3');
             
-            $custoRepo = $this->getDoctrine()
-                              ->getRepository('IPMotorsCustomerBundle:Customer');
+            
             
             $data = $custoRepo->exportData(array(
                 'va1' => $va1,
@@ -49,27 +55,13 @@ class DefaultController extends Controller {
                 'va3' => $va3,
                 'va4' => $va4,
                 'va5' => $va5,
-                'va6' => $va6
+                'va6' => $va6,
+                'ifp1' => $this->get('request')->get('ifp1'),
+                'ifp2' => $this->get('request')->get('ifp2'),
+                'ifp3' => $this->get('request')->get('ifp3')
             ));
-//            
-//            $response = new StreamedResponse(function() use($data) {
-//
-//                $handle = fopen('php://output', 'r+');
-//
-//                foreach($data as $row) {
-//                    fputcsv($handle, $row);
-//                }
-//
-//                fclose($handle);
-//            });
-//
-//            $response->headers->set('Content-Type', 'application/force-download');
-//            $response->headers->set('Content-Disposition','attachment; filename="export.csv"');
-//
-//            return $response;
-
+            
             $handle = fopen('php://memory', 'r+');
-            $header = array();
 
             foreach ($data as $answer) {
                 fputcsv($handle, array($answer));
@@ -87,28 +79,10 @@ class DefaultController extends Controller {
 
 
         return $this->render('IPMotorsMarketingBundle:Default:index.html.twig', array(
-                    'strenghs' => $strenghs,
-                    'surveys' => $surveys,
+            'strenghs' => $strenghs,
+            'surveys' => $surveys,
+            'towns' => $towns,
+            'brands' => $brands
         ));
     }
-
-    public function toCsvAction($array, $filename, $attachment = false) {
-
-        if ($attachment) {
-            header('Content-Type: text/csv');
-            header('Content-Disposition: attachment;filename=' . $filename);
-            header("Content-Type: application/force-download; name=\"" . basename($file) . "\"");
-            header("Content-Transfer-Encoding: binary");
-            header("Expires: 0");
-            header("Cache-Control: no-cache, must-revalidate");
-            header("Pragma: no-cache");
-            $fp = fopen('php://output', 'w');
-        } else {
-            $fp = fopen($filename, 'w');
-        }
-        fputcsv($fp, $array);
-
-        fclose($fp);
-    }
-
 }

@@ -79,6 +79,7 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="ifp1" id="focusedInput">
+                <option value="all">All</option>
                 <option value="1">-25</option>
                 <option value="2">25-35</option>
                 <option value="3">35-55</option>
@@ -87,18 +88,18 @@
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="ifp2" id="focusedInput">
-                <option value="choix1">Choix un</option>
-                <option value="choix2">Choix deux</option>
-                <option value="choix3">Choix trois</option>
-                <option value="choix4">Choix quatre</option>
+                <option value="all">All</option>
+                {% for object in towns %}
+                    <option value="{{ object.town }}">{{ object.town }}</option>
+                {% endfor%}
             </select>
         </div>
         <div class="form-group col-md-4">
-            <select class="form-control" name="ifp1" id="focusedInput">
-                <option value="choix1">Choix un</option>
-                <option value="choix2">Choix deux</option>
-                <option value="choix3">Choix trois</option>
-                <option value="choix4">Choix quatre</option>
+            <select class="form-control" name="ifp3" id="focusedInput">
+                <option value="all">All</option>
+                {% for object in brands %}
+                    <option value="{{ object.brandVehicule }}">{{ object.brandVehicule }}</option>
+                {% endfor%}
             </select>
         </div>
     </div>

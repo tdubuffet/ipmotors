@@ -170,6 +170,10 @@ class DefaultController extends Controller {
                     'error' => 'Impossible d\'enregistrer les données' . $e->getMessage()
                 );
             }
+        } else {
+            $message = array(
+                'error' => 'Aucune données: ' . $e->getMessage()
+            );
         }
         
         $response = new JsonResponse($message);

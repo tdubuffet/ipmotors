@@ -55,7 +55,7 @@ class Customer
      *
      * @ORM\Column(name="town", type="string", length=45)
      */
-    private $town = "NULL";
+    private $town;
     
     /**
      * @var string
@@ -259,9 +259,9 @@ class Customer
      * @param string $adresse
      * @return Customer
      */
-    public function setTown($town = "NULL")
+    public function setTown($town)
     {
-        $this->postal = $town;
+        $this->town = $town;
 
         return $this;
     }
