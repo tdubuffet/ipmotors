@@ -77,4 +77,16 @@ class UserController extends Controller {
         ));
     }
 
+    public function deleteAction($id) {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('IPMotorsUserBundle:User')->find($id);
+        $em->remove($user);
+        $em->flush();
+        $this->get('session')->getFlashBag()->add('info', 'L\'utilsiateur a bien été supprimé');
+
+
+        return $this->redirect($this->generateUrl('ip_motors_users_list'));
+    }
+
 }

@@ -48,3 +48,9 @@ ip_motors_add_user:
 ip_motors_edit_user:
     pattern: /user/edit/{id}
     defaults: { _controller: IPMotorsUserBundle:User:editUser }
+
+ip_motors_user_delete:
+    pattern:  /user/delete/{id}
+    defaults: { _controller: IPMotorsUserBundle:User:delete }
+    requirements :
+        id : \d+

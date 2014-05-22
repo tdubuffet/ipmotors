@@ -1,17 +1,17 @@
 {% extends "::base.html.twig" %}
-
+{% block title %}Accueil {{ parent() }}{% endblock %}
 {% block body %}
     <div class="page-header" id="banner">
 
         <div class="row">
             <div class="col-lg-6">
                 <div class="well sponsor home-well">
-                    <h1><a href="{{ path('ip_motors_customer_homepage') }}">Clients</a></h1>
+                    <h1><a href="{{ path('ip_motors_customer_homepage') }}"><span class="glyphicon glyphicon-user"></span> Clients</a></h1>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="well sponsor home-well">
-                    <h1><a href="#">Marketing</a></h1>
+                    <h1><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Marketing</a></h1>
                 </div>
             </div>
         </div>
@@ -20,12 +20,12 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="well sponsor home-well">
-                    <h1><a href="{{ path('ip_motors_form_edit_homepage') }}">Edition du formulaire</a></h1>
+                    <h1><a href="{{ path('ip_motors_form_edit_homepage') }}"><span class="glyphicon glyphicon-pencil"></span> Edition du formulaire</a></h1>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="well sponsor home-well">
-                    <h1><a href="{{ path('ip_motors_users_list') }}">Utilisateurs</a></h1>
+                    <h1><a href="{{ path('ip_motors_users_list') }}"><span class="glyphicon glyphicon-eye-open"></span> Utilisateurs</a></h1>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="well sponsor home-well">
-                    <h1><a href="{{ path('ip_motors_mail_list') }}">Gestion des notification mails</a></h1>
+                    <h1><a href="{{ path('ip_motors_mail_list') }}"><span class="glyphicon glyphicon-wrench"></span> Gestion des notifs mails</a></h1>
                 </div>
             </div>
             <div class="col-lg-6">
