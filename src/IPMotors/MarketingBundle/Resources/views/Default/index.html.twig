@@ -1,92 +1,101 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-<div class="row">
-    <div class="form-group col-md-4"></div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="selenquete" id="focusedInput">
-        {% for object in surveys %}
-                    <option value="{{object.id}}">{{object.name}}</option> 
-        {% endfor%}
-    </select>
-</div>
-<div class="form-group col-md-4"></div>
-</div>
-<div class="row">
-    <div class="col-xs-6 col-md-4">Filtre véhicule actuel.</div>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="va1" id="focusedInput">
-        {% for object in strenghs %}
-        <option value="{{object.id}}">{{object.name}}</option> 
-        {% endfor%}
-    </select>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="va2" id="focusedInput">
-        {% for object in strenghs %}
-        <option value="{{object.id}}">{{object.name}}</option> 
-        {% endfor%}
-    </select>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="va3" id="focusedInput">
-        {% for object in strenghs %}
-        <option value="{{object.id}}">{{object.name}}</option> 
-        {% endfor%}
-    </select>
-</div>
-<div class="row">
-    <div class="col-xs-6 col-md-4">Filtre futur véhicule.</div>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="vf1" id="focusedInput">
-        {% for object in strenghs %}
-        <option value="{{object.id}}">{{object.name}}</option> 
-        {% endfor%}
-    </select>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="vf2" id="focusedInput">
-        {% for object in strenghs %}
-        <option value="{{object.id}}">{{object.name}}</option> 
-        {% endfor%}
-    </select>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="vf3" id="focusedInput" >
-        {% for object in strenghs %}
-        <option value="{{object.id}}">{{object.name}}</option> 
-        {% endfor%}
-    </select>
-</div>
-<div class="row">
-    <div class="col-xs-6 col-md-4">Filtre infos perso.</div>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="ifp1" id="focusedInput">
-        <option value="1">-25</option>
-        <option value="2">25-35</option>
-        <option value="3">35-55</option>
-        <option value="4">+55</option>
-    </select>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="ifp2" id="focusedInput">
-        <option value="choix1">Choix un</option>
-        <option value="choix2">Choix deux</option>
-        <option value="choix3">Choix trois</option>
-        <option value="choix4">Choix quatre</option>
-    </select>
-</div>
-<div class="form-group col-md-4">
-    <select class="form-control" name="ifp1" id="focusedInput">
-        <option value="choix1">Choix un</option>
-        <option value="choix2">Choix deux</option>
-        <option value="choix3">Choix trois</option>
-        <option value="choix4">Choix quatre</option>
-    </select>
-</div>
+<form name="input" action="??????" method="post">
 
-<button type="button" class="btn btn-primary btn-lg btn-block">Exporter les Mails</button>
+    <div class="row">
+        <div class="form-group col-md-4"></div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="selenquete" id="focusedInput">
+        {% for object in surveys %}
+                <option value="{{object.id}}">{{object.name}}</option> 
+        {% endfor%}
+            </select>
+        </div>
+        <div class="form-group col-md-4"></div>
+    </div>
+
+    <div>
+        <div class="row">
+            <div class="col-xs-6 col-md-4">Filtre véhicule actuel.</div>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="va1" id="focusedInput">
+        {% for object in strenghs %}
+                <option value="{{object.id}}">{{object.name}}</option> 
+        {% endfor%}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="va2" id="focusedInput">
+        {% for object in strenghs %}
+                <option value="{{object.id}}">{{object.name}}</option> 
+        {% endfor%}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="va3" id="focusedInput">
+        {% for object in strenghs %}
+                <option value="{{object.id}}">{{object.name}}</option> 
+        {% endfor%}
+            </select>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-xs-6 col-md-4">Filtre futur véhicule.</div>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="vf1" id="focusedInput">
+        {% for object in strenghs %}
+                <option value="{{object.id}}">{{object.name}}</option> 
+        {% endfor%}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="vf2" id="focusedInput">
+        {% for object in strenghs %}
+                <option value="{{object.id}}">{{object.name}}</option> 
+        {% endfor%}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="vf3" id="focusedInput" >
+        {% for object in strenghs %}
+                <option value="{{object.id}}">{{object.name}}</option> 
+        {% endfor%}
+            </select>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-xs-6 col-md-4">Filtre infos perso.</div>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="ifp1" id="focusedInput">
+                <option value="1">-25</option>
+                <option value="2">25-35</option>
+                <option value="3">35-55</option>
+                <option value="4">+55</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="ifp2" id="focusedInput">
+                <option value="choix1">Choix un</option>
+                <option value="choix2">Choix deux</option>
+                <option value="choix3">Choix trois</option>
+                <option value="choix4">Choix quatre</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="ifp1" id="focusedInput">
+                <option value="choix1">Choix un</option>
+                <option value="choix2">Choix deux</option>
+                <option value="choix3">Choix trois</option>
+                <option value="choix4">Choix quatre</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Exporter les Mails</button>
+</form>
 {% endblock %}
